@@ -1,0 +1,32 @@
+<div class="container">
+  <input [(ngModel)]="term" type="text" class="form-control my-3 bg-transparent text-white" placeholder="search moive">
+
+  <div class="row">
+
+
+    <div class="col-md-4 my-5 ">
+      <div class="bord w-25 mb-4"></div>
+      <h2>Trending</h2>
+      <h2>Movies</h2>
+      <h2>To Watch Now</h2>
+      <span>Most watches moies by day</span>
+      <div class="bord w-100 mt-4"></div>
+    </div>
+    <div class="col-md-2 my-3" *ngFor="let item of movieList|search:term">
+      <div class="item" routerLink="/details/{{item.id}}/movie" >
+        <img [src]="imgUrl+item.poster_path" class="img-fluid">
+        <h2 class="h6 text-center mt-2">{{item.title}}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="p-5 d-flex justify-content-center">
+    <nav aria-label="...">
+      <ul class="pagination pagination-sm ">
+
+        <li *ngFor="let page of pages" class="page-item"><a (click)="getPaginationItem(page)"
+            class="page-link bg-transparent">{{page}}</a></li>
+
+      </ul>
+    </nav>
+  </div>
+</div>

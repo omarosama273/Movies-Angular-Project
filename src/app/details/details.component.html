@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row py-5">
+    <div class="col-md-3 ">
+      <img [src]="imgUrl+details.poster_path" class="img-fluid">
+    </div>
+      <div class="col-md-8">
+        <h2>{{details.original_title}}</h2>
+        <h2>{{details.name}}</h2>
+        <p class="py-3">{{details.overview}}</p>
+
+        <ul class="list-unstyled mt-3">
+          <li class="mb-3 small" *ngIf="details.vote_average">
+            Voute: {{ details.vote_average.toString() | slice: 0:3 }}
+          </li>
+          <li class="mb-3 small" *ngIf="details.vote_count">
+            Voute Counte: {{ details.vote_count }}
+          </li>
+          <li class="mb-3 small"  *ngIf="details.popularity">Popularity: {{ details.popularity }}</li>
+          <li class="mb-3 small" *ngIf="details.release_date">
+            Release Date: {{ details.release_date }}
+          </li>
+          <li class="mb-3 small" *ngIf="details.birthday">
+            Birth Day: {{ details.birthday }}
+          </li>
+          <li class="mb-3 small" *ngIf="details.deathday">
+            Death Day: {{ details.deathday }}
+          </li>
+        </ul>
+
+      </div>
+  </div>
+</div>
